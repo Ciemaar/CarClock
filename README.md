@@ -26,8 +26,23 @@ Tapping the screen opens the settings menu, allowing you to switch to the **Digi
 - Toggle the **Date** display (shows e.g., "Thursday, January 1" below the clock).
 - Tap the **Close** button (styled in Infiniti Green) to return to the clock.
 
+### 📸 How to Capture Real Screenshots
+To capture actual, high-quality screenshots for the Google Play Store or to replace these placeholders:
+
+**Option A: From Android Studio (Easiest)**
+1. Launch the app in the **Android Automotive Emulator**.
+2. Click the **Camera Icon** (Take Screenshot) in the emulator's side toolbar.
+3. The screenshot will automatically save to your Desktop or a specified folder in high resolution.
+
+**Option B: From the Physical Vehicle (via adb)**
+If you sideloaded the app via a laptop connected to the car:
+1. Ensure `adb` is connected to the vehicle.
+2. Navigate to the screen you want to capture on the dashboard.
+3. Run this command in your terminal: `adb exec-out screencap -p > clock_screenshot.png`
+4. The high-quality PNG will be saved directly to your computer.
+
 ### Screenshots Placeholder
-*(When publishing, add your physical dashboard or emulator screenshots here. The required aspect ratio for Automotive apps is typically 1024x768 or widescreen landscape).*
+*(When publishing, replace these mockups with your captured images. The required aspect ratio for Automotive apps is typically 1024x768 or widescreen landscape).*
 
 ```
 +--------------------------------------------------+

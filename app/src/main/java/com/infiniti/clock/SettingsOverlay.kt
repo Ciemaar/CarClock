@@ -49,8 +49,8 @@ fun SettingsOverlay(
                 .width(400.dp)
                 .clip(RoundedCornerShape(16.dp))
                 .background(MaterialTheme.colorScheme.surface)
-                .padding(32.dp)
-                .clickable { /* consume clicks inside panel */ },
+                .clickable { /* consume clicks inside panel */ }
+                .padding(32.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
