@@ -41,6 +41,9 @@ jobs:
       - name: Run Code Formatting Check (ktlint)
         run: ./gradlew ktlintCheck
 
+      - name: Verify Kotlin Documentation (Dokka)
+        run: ./gradlew dokkaHtml
+
       - name: Run Android Lint (Code Quality)
         run: ./gradlew lintDebug
 

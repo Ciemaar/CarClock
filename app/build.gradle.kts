@@ -1,6 +1,16 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.dokka")
+}
+
+tasks.dokkaHtml.configure {
+    dokkaSourceSets {
+        named("main") {
+            reportUndocumented.set(true)
+            failOnWarning.set(true)
+        }
+    }
 }
 
 android {

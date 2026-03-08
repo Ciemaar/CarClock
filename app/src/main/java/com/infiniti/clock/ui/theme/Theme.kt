@@ -45,9 +45,11 @@ private val LightColorScheme = lightColorScheme(
 
 /**
  * The core theme applied to the Infiniti Clock app.
- * Automatically handles the transition between light and dark mode, * utilizing a simplified pure black and white palette for night driving.
+ * Automatically handles the transition between light and dark mode,
+ * utilizing a simplified pure black and white palette for night driving.
  *
- * @param darkTheme Automatically defaults to [isSystemInDarkTheme] representing the car's *                  headlight/ambient light sensor status.
+ * @param darkTheme Automatically defaults to [isSystemInDarkTheme] representing the car's
+ *                  headlight/ambient light sensor status.
  * @param content The composable content to render underneath the applied Material 3 color scheme.
  */
 @Composable

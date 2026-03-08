@@ -13,6 +13,10 @@ KTLINT_RESULT=$?
 npm run check:md
 MD_RESULT=$?
 
+# Run Dokka Check (Enforce KDoc presence)
+./gradlew dokkaHtml
+DOKKA_RESULT=$?
+
 # Unstash the unstaged changes
 git stash pop -q
 
@@ -26,5 +30,10 @@ if [ $MD_RESULT -ne 0 ]; then
   exit 1
 fi
 
-echo "✅ Formatting checks passed!"
+if [ $DOKKA_RESULT -ne 0 ]; then
+  echo "❌ Missing Kotlin Documentation! Please add KDoc comments to any new public functions or classes."
+  exit 1
+fi
+
+echo "✅ Formatting and Documentation checks passed!"
 exit 0

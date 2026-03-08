@@ -31,7 +31,8 @@ import com.infiniti.clock.ui.theme.InfinitiGreen
 
 /**
  * Renders a transparent modal overlay covering the entire screen.
- * Contains user controls (switches) to toggle display settings without * requiring navigation away from the main clock.
+ * Contains user controls (switches) to toggle display settings without
+ * requiring navigation away from the main clock.
  *
  * @param isAnalog Boolean indicating if the Analog clock is currently selected.
  * @param onAnalogChanged Callback triggered when the Clock Type switch is toggled.
