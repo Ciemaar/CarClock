@@ -29,6 +29,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.infiniti.clock.ui.theme.InfinitiGreen
 
+/**
+ * Renders a transparent modal overlay covering the entire screen.
+ * Contains user controls (switches) to toggle display settings without * requiring navigation away from the main clock.
+ *
+ * @param isAnalog Boolean indicating if the Analog clock is currently selected.
+ * @param onAnalogChanged Callback triggered when the Clock Type switch is toggled.
+ * @param showDate Boolean indicating if the Date is currently showing.
+ * @param onShowDateChanged Callback triggered when the Show Date switch is toggled.
+ * @param onClose Callback triggered when the user taps outside the menu or clicks the Close button.
+ */
 @Composable
 fun SettingsOverlay(
     isAnalog: Boolean,
@@ -44,58 +54,88 @@ fun SettingsOverlay(
             .clickable { onClose() },
         contentAlignment = Alignment.Center
     ) {
-        Column(
-            modifier = Modifier
-                .width(400.dp)
-                .clip(RoundedCornerShape(16.dp))
-                .background(MaterialTheme.colorScheme.surface)
-                .clickable { /* consume clicks inside panel */ }
-                .padding(32.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+        SettingsPanel(
+            isAnalog = isAnalog,
+            onAnalogChanged = onAnalogChanged,
+            showDate = showDate,
+            onShowDateChanged = onShowDateChanged,
+            onClose = onClose
+        )
+    }
+}
+
+/**
+ * The inner panel component containing the actual settings UI elements.
+ */
+@Composable
+fun SettingsPanel(
+    isAnalog: Boolean,
+    onAnalogChanged: (Boolean) -> Unit,
+    showDate: Boolean,
+    onShowDateChanged: (Boolean) -> Unit,
+    onClose: () -> Unit
+) {
+    Column(
+        modifier = Modifier
+            .width(400.dp)
+            .clip(RoundedCornerShape(16.dp))
+            .background(MaterialTheme.colorScheme.surface)
+            .clickable { /* consume clicks inside panel */ }
+            .padding(32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = "Clock Settings",
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary
+        )
+
+        Spacer(modifier = Modifier.height(32.dp))
+
+        SettingRow(
+            title = "Clock Type",
+            option1 = "Digital",
+            option2 = "Analog",
+            isChecked = isAnalog,
+            onCheckedChange = onAnalogChanged
+        )
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        SettingRow(
+            title = "Show Date",
+            option1 = "Off",
+            option2 = "On",
+            isChecked = showDate,
+            onCheckedChange = onShowDateChanged
+        )
+
+        Spacer(modifier = Modifier.height(48.dp))
+
+        Button(
+            onClick = onClose,
+            colors = ButtonDefaults.buttonColors(
+                containerColor = InfinitiGreen,
+                contentColor = Color.White
+            ),
+            modifier = Modifier.fillMaxWidth()
         ) {
-            Text(
-                text = "Clock Settings",
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.primary
-            )
-
-            Spacer(modifier = Modifier.height(32.dp))
-
-            SettingRow(
-                title = "Clock Type",
-                option1 = "Digital",
-                option2 = "Analog",
-                isChecked = isAnalog,
-                onCheckedChange = onAnalogChanged
-            )
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            SettingRow(
-                title = "Show Date",
-                option1 = "Off",
-                option2 = "On",
-                isChecked = showDate,
-                onCheckedChange = onShowDateChanged
-            )
-
-            Spacer(modifier = Modifier.height(48.dp))
-
-            Button(
-                onClick = onClose,
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = InfinitiGreen,
-                    contentColor = Color.White
-                ),
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text("Close", fontSize = 18.sp, modifier = Modifier.padding(vertical = 8.dp))
-            }
+            Text("Close", fontSize = 18.sp, modifier = Modifier.padding(vertical = 8.dp))
         }
     }
 }
 
+/**
+ * A reusable composable component representing a single row in the [SettingsOverlay].
+ * It consists of a label, a description of the two states, and a [Switch].
+ *
+ * @param title The name of the setting (e.g., "Clock Type").
+ * @param option1 The label representing the `unchecked` state (e.g., "Digital").
+ * @param option2 The label representing the `checked` state (e.g., "Analog").
+ * @param isChecked The current state of the switch.
+ * @param onCheckedChange Callback triggered when the user taps the switch.
+ */
 @Composable
 fun SettingRow(
     title: String,

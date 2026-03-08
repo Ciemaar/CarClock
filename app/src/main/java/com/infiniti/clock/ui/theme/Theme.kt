@@ -7,7 +7,14 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
+/**
+ * Custom dark green accent color mapping to Infiniti branding.
+ */
 val InfinitiGreen = Color(0xFF003D33)
+
+/**
+ * Custom gold accent color mapping to Infiniti branding.
+ */
 val InfinitiGold = Color(0xFFB0985A)
 
 private val DarkColorScheme = darkColorScheme(
@@ -20,7 +27,7 @@ private val DarkColorScheme = darkColorScheme(
     onSecondary = Color.Black,
     onTertiary = Color.White,
     onBackground = Color.White,
-    onSurface = Color.White,
+    onSurface = Color.White
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -33,9 +40,16 @@ private val LightColorScheme = lightColorScheme(
     onSecondary = Color.White,
     onTertiary = Color.White,
     onBackground = Color.Black,
-    onSurface = Color.Black,
+    onSurface = Color.Black
 )
 
+/**
+ * The core theme applied to the Infiniti Clock app.
+ * Automatically handles the transition between light and dark mode, * utilizing a simplified pure black and white palette for night driving.
+ *
+ * @param darkTheme Automatically defaults to [isSystemInDarkTheme] representing the car's *                  headlight/ambient light sensor status.
+ * @param content The composable content to render underneath the applied Material 3 color scheme.
+ */
 @Composable
 fun InfinitiClockTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),

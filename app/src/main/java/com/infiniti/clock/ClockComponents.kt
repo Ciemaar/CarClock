@@ -34,6 +34,12 @@ import java.util.Locale
 import kotlin.math.cos
 import kotlin.math.sin
 
+/**
+ * Renders an analog clock face using the Compose [Canvas].
+ * The clock ticks every second using a coroutine launched via [LaunchedEffect].
+ *
+ * @param showDate Boolean indicating whether the [DateDisplay] should be rendered below the clock.
+ */
 @Composable
 fun AnalogClock(showDate: Boolean) {
     var currentTime by remember { mutableStateOf(Calendar.getInstance()) }
@@ -152,6 +158,12 @@ fun AnalogClock(showDate: Boolean) {
     }
 }
 
+/**
+ * Renders a large, modern digital clock format.
+ * The time updates continuously via a [LaunchedEffect] coroutine.
+ *
+ * @param showDate Boolean indicating whether the [DateDisplay] should be rendered below the clock.
+ */
 @Composable
 fun DigitalClock(showDate: Boolean) {
     var currentTime by remember { mutableStateOf(Date()) }
@@ -187,6 +199,10 @@ fun DigitalClock(showDate: Boolean) {
     }
 }
 
+/**
+ * A sub-component that formats and displays the current day of the week, month, and date.
+ * Updates automatically every minute to ensure the date remains accurate if left running overnight.
+ */
 @Composable
 fun DateDisplay() {
     var currentDate by remember { mutableStateOf(Date()) }

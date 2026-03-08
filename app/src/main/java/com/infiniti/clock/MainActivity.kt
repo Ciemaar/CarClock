@@ -18,6 +18,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.infiniti.clock.ui.theme.InfinitiClockTheme
 
+/**
+ * The main entry point for the Infiniti Clock Android Automotive application.
+ * This activity handles setting up the Jetpack Compose environment and applying the app theme.
+ */
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +33,12 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+/**
+ * The root composable for the application.
+ * It manages the high-level state (such as whether the clock is analog/digital,
+ * and if the date is showing) and handles user interactions (like tapping the screen
+ * to bring up the [SettingsOverlay]).
+ */
 @Composable
 fun ClockApp() {
     var showSettings by remember { mutableStateOf(false) }

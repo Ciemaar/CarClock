@@ -1,0 +1,22 @@
+#!/bin/sh
+
+echo "Running ktlintCheck before commit..."
+
+# Stash unstaged changes to only check what's being committed
+git stash -q --keep-index
+
+# Run ktlint Check
+./gradlew ktlintCheck
+
+RESULT=$?
+
+# Unstash the unstaged changes
+git stash pop -q
+
+if [ $RESULT -ne 0 ]; then
+  echo "❌ ktlintCheck failed! Please fix formatting issues using './gradlew ktlintFormat' before committing."
+  exit 1
+fi
+
+echo "✅ Formatting check passed!"
+exit 0
