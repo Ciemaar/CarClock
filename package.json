@@ -1,0 +1,25 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "A custom-designed, distraction-optimized Android Automotive OS app built to run natively on the infotainment screen of a 2026 Infiniti QX60.",
+  "main": "index.js",
+  "scripts": {
+    "format:md": "prettier --write \"*.md\"",
+    "check:md": "prettier --check \"*.md\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ciemaar/CarClock.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Ciemaar/CarClock/issues"
+  },
+  "homepage": "https://github.com/Ciemaar/CarClock#readme",
+  "devDependencies": {
+    "prettier": "^3.8.1"
+  }
+}

@@ -7,16 +7,24 @@ git stash -q --keep-index
 
 # Run ktlint Check
 ./gradlew ktlintCheck
+KTLINT_RESULT=$?
 
-RESULT=$?
+# Run Markdown Check
+npm run check:md
+MD_RESULT=$?
 
 # Unstash the unstaged changes
 git stash pop -q
 
-if [ $RESULT -ne 0 ]; then
+if [ $KTLINT_RESULT -ne 0 ]; then
   echo "❌ ktlintCheck failed! Please fix formatting issues using './gradlew ktlintFormat' before committing."
   exit 1
 fi
 
-echo "✅ Formatting check passed!"
+if [ $MD_RESULT -ne 0 ]; then
+  echo "❌ Markdown formatting check failed! Please run 'npm run format:md' before committing."
+  exit 1
+fi
+
+echo "✅ Formatting checks passed!"
 exit 0
