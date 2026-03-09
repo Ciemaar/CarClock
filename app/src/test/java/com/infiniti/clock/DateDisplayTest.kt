@@ -18,7 +18,7 @@ class DateDisplayTest {
             DateDisplay()
         }
 
-        composeTestRule.waitForIdle()
-        assert(true)
+        composeTestRule.mainClock.autoAdvance = false
+        composeTestRule.mainClock.advanceTimeBy(500)
     }
 }

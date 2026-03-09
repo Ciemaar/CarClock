@@ -17,8 +17,11 @@ MD_RESULT=$?
 ./gradlew dokkaHtml
 DOKKA_RESULT=$?
 
-# Unstash the unstaged changes
-git stash pop -q
+# Unstash the unstaged changes ONLY if we actually stashed something
+STASH_COUNT=$(git stash list | wc -l)
+if [ "$STASH_COUNT" -gt 0 ]; then
+  git stash pop -q
+fi
 
 if [ $KTLINT_RESULT -ne 0 ]; then
   echo "❌ ktlintCheck failed! Please fix formatting issues using './gradlew ktlintFormat' before committing."

@@ -1,7 +1,6 @@
 package com.infiniti.clock
 
 import androidx.compose.ui.test.junit4.createComposeRule
-import androidx.compose.ui.test.onNodeWithText
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -19,12 +18,11 @@ class DigitalClockTest {
             DigitalClock(showDate = true)
         }
 
-        // Wait for coroutine to run at least once
-        composeTestRule.waitForIdle()
+        // Because DigitalClock has an infinite loop LaunchedEffect, waitForIdle() will timeout.
+        // We pause the main clock to allow the test to finish executing.
+        composeTestRule.mainClock.autoAdvance = false
 
-        // Can't match exact time since it changes, but we can verify AM or PM exists
-        // as well as the date string using regex or simple format
-        // For simple smoke test: just checking if the layout exists without crashing.
-        assert(true)
+        // Let it advance just enough to render the first frame
+        composeTestRule.mainClock.advanceTimeBy(500)
     }
 }

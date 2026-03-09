@@ -24,8 +24,13 @@ class MainActivityTest {
         // Settings are hidden by default
         composeTestRule.onNodeWithText("Clock Settings").assertDoesNotExist()
 
+        composeTestRule.mainClock.autoAdvance = false
+
         // Click the background to open the menu
         composeTestRule.onNodeWithTag("ClockBackground").performClick()
+
+        composeTestRule.mainClock.advanceTimeByFrame()
+
         composeTestRule.onNodeWithText("Clock Settings").assertExists()
 
         // Toggle to Digital
@@ -36,6 +41,7 @@ class MainActivityTest {
 
         // Close menu
         composeTestRule.onNodeWithText("Close").performClick()
+        composeTestRule.mainClock.advanceTimeByFrame()
         composeTestRule.onNodeWithText("Clock Settings").assertDoesNotExist()
     }
 }

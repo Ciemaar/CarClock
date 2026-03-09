@@ -18,9 +18,9 @@ class AnalogClockTest {
             AnalogClock(showDate = false)
         }
 
-        // Analog clock uses Canvas, which doesn't expose semantics easily without explicit testTags
-        // But rendering it via Robolectric ensures the geometry logic (sin/cos/trigonometry) doesn't crash.
-        composeTestRule.waitForIdle()
-        assert(true)
+        // Because AnalogClock uses an infinite LaunchedEffect loop, waitForIdle() will hang.
+        // We pause the main clock to allow the test to assert its state safely.
+        composeTestRule.mainClock.autoAdvance = false
+        composeTestRule.mainClock.advanceTimeBy(500)
     }
 }
