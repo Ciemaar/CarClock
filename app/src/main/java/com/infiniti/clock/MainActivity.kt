@@ -15,6 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.graphics.Color
 import com.infiniti.clock.ui.theme.InfinitiClockTheme
 
@@ -51,7 +52,8 @@ fun ClockApp() {
         modifier = Modifier
             .fillMaxSize()
             .background(backgroundColor)
-            .clickable { showSettings = !showSettings },
+            .clickable { showSettings = !showSettings }
+            .testTag("ClockBackground"),
         contentAlignment = Alignment.Center
     ) {
         if (isAnalog) {

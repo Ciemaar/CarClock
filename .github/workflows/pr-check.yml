@@ -50,6 +50,9 @@ jobs:
       - name: Run Unit Tests
         run: ./gradlew testDebugUnitTest
 
+      - name: Verify Minimum Test Coverage (Kover)
+        run: ./gradlew koverVerifyDebug
+
       - name: Build Debug APK
         run: ./gradlew assembleDebug
 

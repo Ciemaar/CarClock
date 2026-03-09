@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android") version "1.9.0" apply false
     id("org.jlleitschuh.gradle.ktlint") version "11.6.0" apply false
     id("org.jetbrains.dokka") version "1.9.20" apply false
+    id("org.jetbrains.kotlinx.kover") version "0.8.3" apply false
 }
 
 allprojects {
