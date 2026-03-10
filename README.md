@@ -11,8 +11,8 @@ To help you get started, we have split the documentation into distinct guides:
 - **[User Guide](USER_GUIDE.md)**: A manual detailing how to interact with the clock in the Infiniti QX60, switch between analog/digital modes, toggle the date, and understand the day/night theme behavior.
 - **[Developer Guide](DEVELOPER_GUIDE.md)**: A technical guide covering how to compile the app, run automated tests, use the Android Studio Automotive Emulator, sideload the app via USB (`adb`), capture high-resolution screenshots, and publish to the Google Play Store while adhering to driver distraction guidelines.
 
-* **[Learning Guide](LEARNING_GUIDE.md)**: If you are new to Kotlin, Jetpack Compose, or Android Automotive development, start here! This guide provides a walkthrough of the core code concepts, how the clock ticks using Coroutines, and suggestions for beginner-friendly contributions.
-* **[Tooling Evaluation](EVALUATION.md)**: Details the architecture decisions and the pure-Gradle tooling stack (Spotless, Detekt, Kover, Dokka) used to maintain code quality.
+- **[Learning Guide](LEARNING_GUIDE.md)**: If you are new to Kotlin, Jetpack Compose, or Android Automotive development, start here! This guide provides a walkthrough of the core code concepts, explains how the clock ticks using Coroutines, and offers suggestions for beginner-friendly contributions.
+- **[Tooling Evaluation](EVALUATION.md)**: Details the architecture decisions and the pure-Gradle tooling stack (Spotless, Detekt, Kover, Dokka) used to maintain code quality.
 
 ---
 

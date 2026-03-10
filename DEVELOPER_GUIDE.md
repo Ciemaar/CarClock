@@ -88,6 +88,7 @@ Google strictly limits what can run while driving. Because your `AndroidManifest
 ### App Categorization limitations
 
 Google Play strictly limits Automotive apps to pre-approved categories (e.g., Media, Navigation, IoT, Video).
+
 **Important Note:** A standalone "Clock" or "Utility" app is not currently an officially supported category for independent public distribution.
 
 - You may need to distribute this app privately to your specific Google Account.
