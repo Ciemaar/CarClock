@@ -46,21 +46,21 @@ fun SettingsOverlay(
     onAnalogChanged: (Boolean) -> Unit,
     showDate: Boolean,
     onShowDateChanged: (Boolean) -> Unit,
-    onClose: () -> Unit
+    onClose: () -> Unit,
 ) {
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Black.copy(alpha = 0.7f))
             .clickable { onClose() },
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         SettingsPanel(
             isAnalog = isAnalog,
             onAnalogChanged = onAnalogChanged,
             showDate = showDate,
             onShowDateChanged = onShowDateChanged,
-            onClose = onClose
+            onClose = onClose,
         )
     }
 }
@@ -74,7 +74,7 @@ fun SettingsPanel(
     onAnalogChanged: (Boolean) -> Unit,
     showDate: Boolean,
     onShowDateChanged: (Boolean) -> Unit,
-    onClose: () -> Unit
+    onClose: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -83,13 +83,13 @@ fun SettingsPanel(
             .background(MaterialTheme.colorScheme.surface)
             .clickable { /* consume clicks inside panel */ }
             .padding(32.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
             text = "Clock Settings",
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.primary
+            color = MaterialTheme.colorScheme.primary,
         )
 
         Spacer(modifier = Modifier.height(32.dp))
@@ -99,7 +99,7 @@ fun SettingsPanel(
             option1 = "Digital",
             option2 = "Analog",
             isChecked = isAnalog,
-            onCheckedChange = onAnalogChanged
+            onCheckedChange = onAnalogChanged,
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -109,7 +109,7 @@ fun SettingsPanel(
             option1 = "Off",
             option2 = "On",
             isChecked = showDate,
-            onCheckedChange = onShowDateChanged
+            onCheckedChange = onShowDateChanged,
         )
 
         Spacer(modifier = Modifier.height(48.dp))
@@ -118,9 +118,9 @@ fun SettingsPanel(
             onClick = onClose,
             colors = ButtonDefaults.buttonColors(
                 containerColor = InfinitiGreen,
-                contentColor = Color.White
+                contentColor = Color.White,
             ),
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         ) {
             Text("Close", fontSize = 18.sp, modifier = Modifier.padding(vertical = 8.dp))
         }
@@ -143,19 +143,19 @@ fun SettingRow(
     option1: String,
     option2: String,
     isChecked: Boolean,
-    onCheckedChange: (Boolean) -> Unit
+    onCheckedChange: (Boolean) -> Unit,
 ) {
     Column(modifier = Modifier.fillMaxWidth()) {
         Text(
             text = title,
             fontSize = 18.sp,
             color = MaterialTheme.colorScheme.secondary,
-            modifier = Modifier.padding(bottom = 8.dp)
+            modifier = Modifier.padding(bottom = 8.dp),
         )
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         ) {
             Text(text = option1, color = MaterialTheme.colorScheme.primary, fontSize = 16.sp)
             Switch(
@@ -165,8 +165,8 @@ fun SettingRow(
                     checkedThumbColor = Color.White,
                     checkedTrackColor = InfinitiGreen,
                     uncheckedThumbColor = Color.Gray,
-                    uncheckedTrackColor = Color.DarkGray
-                )
+                    uncheckedTrackColor = Color.DarkGray,
+                ),
             )
             Text(text = option2, color = MaterialTheme.colorScheme.primary, fontSize = 16.sp)
         }

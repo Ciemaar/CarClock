@@ -66,7 +66,7 @@ fun AnalogClock(showDate: Boolean) {
                 color = clockColor,
                 radius = radius,
                 center = center,
-                style = Stroke(width = 4.dp.toPx())
+                style = Stroke(width = 4.dp.toPx()),
             )
 
             // Draw tick marks
@@ -77,11 +77,11 @@ fun AnalogClock(showDate: Boolean) {
 
                 val start = Offset(
                     x = center.x + (radius - lineLength) * cos(angle).toFloat(),
-                    y = center.y + (radius - lineLength) * sin(angle).toFloat()
+                    y = center.y + (radius - lineLength) * sin(angle).toFloat(),
                 )
                 val end = Offset(
                     x = center.x + radius * cos(angle).toFloat(),
-                    y = center.y + radius * sin(angle).toFloat()
+                    y = center.y + radius * sin(angle).toFloat(),
                 )
 
                 drawLine(
@@ -89,7 +89,7 @@ fun AnalogClock(showDate: Boolean) {
                     start = start,
                     end = end,
                     strokeWidth = lineThickness,
-                    cap = StrokeCap.Round
+                    cap = StrokeCap.Round,
                 )
             }
 
@@ -105,10 +105,10 @@ fun AnalogClock(showDate: Boolean) {
                 start = center,
                 end = Offset(
                     x = center.x + hourHandLength * cos(hourAngle).toFloat(),
-                    y = center.y + hourHandLength * sin(hourAngle).toFloat()
+                    y = center.y + hourHandLength * sin(hourAngle).toFloat(),
                 ),
                 strokeWidth = 6.dp.toPx(),
-                cap = StrokeCap.Round
+                cap = StrokeCap.Round,
             )
 
             // Draw Minute Hand
@@ -119,10 +119,10 @@ fun AnalogClock(showDate: Boolean) {
                 start = center,
                 end = Offset(
                     x = center.x + minHandLength * cos(minAngle).toFloat(),
-                    y = center.y + minHandLength * sin(minAngle).toFloat()
+                    y = center.y + minHandLength * sin(minAngle).toFloat(),
                 ),
                 strokeWidth = 4.dp.toPx(),
-                cap = StrokeCap.Round
+                cap = StrokeCap.Round,
             )
 
             // Draw Second Hand
@@ -133,24 +133,24 @@ fun AnalogClock(showDate: Boolean) {
                 start = center,
                 end = Offset(
                     x = center.x + secHandLength * cos(secAngle).toFloat(),
-                    y = center.y + secHandLength * sin(secAngle).toFloat()
+                    y = center.y + secHandLength * sin(secAngle).toFloat(),
                 ),
                 strokeWidth = 2.dp.toPx(),
-                cap = StrokeCap.Round
+                cap = StrokeCap.Round,
             )
 
             // Draw Center Dot
             drawCircle(
                 color = accentColor,
                 radius = 6.dp.toPx(),
-                center = center
+                center = center,
             )
         }
 
         if (showDate) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.padding(top = 180.dp)
+                modifier = Modifier.padding(top = 180.dp),
             ) {
                 DateDisplay()
             }
@@ -183,13 +183,13 @@ fun DigitalClock(showDate: Boolean) {
             text = timeFormat.format(currentTime),
             fontSize = 96.sp,
             fontWeight = FontWeight.Light,
-            color = MaterialTheme.colorScheme.primary
+            color = MaterialTheme.colorScheme.primary,
         )
         Text(
             text = amPmFormat.format(currentTime),
             fontSize = 24.sp,
             fontWeight = FontWeight.Normal,
-            color = MaterialTheme.colorScheme.secondary
+            color = MaterialTheme.colorScheme.secondary,
         )
 
         if (showDate) {
@@ -220,6 +220,6 @@ fun DateDisplay() {
         text = dateFormat.format(currentDate),
         fontSize = 20.sp,
         fontWeight = FontWeight.Medium,
-        color = MaterialTheme.colorScheme.secondary
+        color = MaterialTheme.colorScheme.secondary,
     )
 }

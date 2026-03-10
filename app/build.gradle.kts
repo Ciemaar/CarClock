@@ -3,6 +3,12 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.dokka")
     id("org.jetbrains.kotlinx.kover")
+    id("io.gitlab.arturbosch.detekt")
+}
+
+detekt {
+    config.setFrom(file("../config/detekt/detekt.yml"))
+    buildUponDefaultConfig = true
 }
 
 tasks.dokkaHtml.configure {
@@ -36,7 +42,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }

@@ -54,7 +54,7 @@ fun ClockApp() {
             .background(backgroundColor)
             .clickable { showSettings = !showSettings }
             .testTag("ClockBackground"),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         if (isAnalog) {
             AnalogClock(showDate = showDate)
@@ -68,7 +68,7 @@ fun ClockApp() {
                 onAnalogChanged = { isAnalog = it },
                 showDate = showDate,
                 onShowDateChanged = { showDate = it },
-                onClose = { showSettings = false }
+                onClose = { showSettings = false },
             )
         }
     }

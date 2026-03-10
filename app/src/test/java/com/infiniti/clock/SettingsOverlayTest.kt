@@ -26,7 +26,7 @@ class SettingsOverlayTest {
                 onAnalogChanged = { analogState = it },
                 showDate = dateState,
                 onShowDateChanged = { dateState = it },
-                onClose = { isClosed = true }
+                onClose = { isClosed = true },
             )
         }
 

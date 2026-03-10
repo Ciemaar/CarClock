@@ -27,7 +27,7 @@ private val DarkColorScheme = darkColorScheme(
     onSecondary = Color.Black,
     onTertiary = Color.White,
     onBackground = Color.White,
-    onSurface = Color.White
+    onSurface = Color.White,
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -40,7 +40,7 @@ private val LightColorScheme = lightColorScheme(
     onSecondary = Color.White,
     onTertiary = Color.White,
     onBackground = Color.Black,
-    onSurface = Color.Black
+    onSurface = Color.Black,
 )
 
 /**
@@ -55,7 +55,7 @@ private val LightColorScheme = lightColorScheme(
 @Composable
 fun InfinitiClockTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     val colorScheme = if (darkTheme) {
         DarkColorScheme
@@ -65,6 +65,6 @@ fun InfinitiClockTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        content = content
+        content = content,
     )
 }

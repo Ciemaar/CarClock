@@ -5,13 +5,13 @@ echo "Running ktlintCheck before commit..."
 # Stash unstaged changes to only check what's being committed
 git stash -q --keep-index
 
-# Run ktlint Check
-./gradlew ktlintCheck
-KTLINT_RESULT=$?
+# Run Spotless Check (Kotlin & Markdown formatting)
+./gradlew spotlessCheck
+SPOTLESS_RESULT=$?
 
-# Run Markdown Check
-npm run check:md
-MD_RESULT=$?
+# Run Detekt (Kotlin Static Analysis)
+./gradlew detekt
+DETEKT_RESULT=$?
 
 # Run Dokka Check (Enforce KDoc presence)
 ./gradlew dokkaHtml
@@ -23,13 +23,13 @@ if [ "$STASH_COUNT" -gt 0 ]; then
   git stash pop -q
 fi
 
-if [ $KTLINT_RESULT -ne 0 ]; then
-  echo "❌ ktlintCheck failed! Please fix formatting issues using './gradlew ktlintFormat' before committing."
+if [ $SPOTLESS_RESULT -ne 0 ]; then
+  echo "❌ Spotless formatting check failed! Please fix formatting issues using './gradlew spotlessApply' before committing."
   exit 1
 fi
 
-if [ $MD_RESULT -ne 0 ]; then
-  echo "❌ Markdown formatting check failed! Please run 'npm run format:md' before committing."
+if [ $DETEKT_RESULT -ne 0 ]; then
+  echo "❌ Detekt static analysis failed! Please fix the reported Kotlin code smells before committing."
   exit 1
 fi
 

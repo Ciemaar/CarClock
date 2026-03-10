@@ -36,7 +36,7 @@ class ClockUITest {
                 onAnalogChanged = { isAnalog = it },
                 showDate = showDate,
                 onShowDateChanged = { showDate = it },
-                onClose = {}
+                onClose = {},
             )
         }
 
