@@ -67,6 +67,14 @@ fun SettingsOverlay(
 
 /**
  * The inner panel component containing the actual settings UI elements.
+ * Separated from [SettingsOverlay] to maintain manageable composable lengths
+ * and separate the layout logic from the background click-dismiss logic.
+ *
+ * @param isAnalog Boolean indicating if the Analog clock is currently selected.
+ * @param onAnalogChanged Callback triggered when the Clock Type switch is toggled.
+ * @param showDate Boolean indicating if the Date is currently showing.
+ * @param onShowDateChanged Callback triggered when the Show Date switch is toggled.
+ * @param onClose Callback triggered when the user clicks the Close button.
  */
 @Composable
 fun SettingsPanel(

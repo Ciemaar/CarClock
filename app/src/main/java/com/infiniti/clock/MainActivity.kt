@@ -21,7 +21,9 @@ import com.infiniti.clock.ui.theme.InfinitiClockTheme
 
 /**
  * The main entry point for the Infiniti Clock Android Automotive application.
- * This activity handles setting up the Jetpack Compose environment and applying the app theme.
+ * This activity handles setting up the Jetpack Compose environment and applying the [InfinitiClockTheme].
+ * Because this targets Android Automotive, it relies heavily on the distraction-optimized
+ * metadata specified in the AndroidManifest.xml.
  */
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
