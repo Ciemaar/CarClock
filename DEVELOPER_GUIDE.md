@@ -2,6 +2,27 @@
 
 This project is an Android Automotive OS standalone app (API 33+) written in Kotlin using Jetpack Compose. It runs natively on the infotainment unit, _not_ as an Android Auto phone projection.
 
+## 🧰 Environment Setup & Prerequisites
+
+Before you can build or test the Infiniti Clock app locally, you need to set up the Android development environment.
+
+### 1. Install Android Studio (Recommended)
+
+Android Studio is the official IDE for Android development. It automatically bundles the Android SDK, necessary build tools, and emulator management.
+
+- Download it from [developer.android.com/studio](https://developer.android.com/studio).
+- Follow the installation wizard and allow it to install the **Android SDK** and **Android SDK Command-line Tools**.
+
+### 2. JDK & Java 17
+
+This project compiles using **Java 17**. If you are using Android Studio, a bundled JDK is included automatically. If you are building solely from a terminal, install a JDK (like Temurin 17) and ensure your `JAVA_HOME` environment variable points to it.
+
+### 3. Gradle
+
+You do **not** need to install Gradle manually. This repository includes the Gradle Wrapper (`gradlew`). When you run a command like `./gradlew assembleDebug`, it will automatically download the correct version of Gradle (v8.8) required by the project.
+
+---
+
 ## 🏗️ Technical Architecture
 
 ### Tech Stack
