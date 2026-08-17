@@ -32,3 +32,8 @@ This is a native Android Automotive OS app (API 34+), not a standard mobile app.
 ## 5. Documentation
 
 - If you add a new feature or change the UI flow, you must update the `USER_GUIDE.md` and/or `DEVELOPER_GUIDE.md` accordingly. Ensure the synthetic screenshots in the `README.md` are updated if the layout changes significantly.
+
+## 6. Branch Management and Merging
+
+- When working on an existing, previous branch (e.g., rebasing or merging features), features MUST NOT be removed if they have been added to the main branch in the intermediate interval.
+- All branches being merged in, as well as their matching PRs, MUST be referenced in the commit comments and any new PRs.
