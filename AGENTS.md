@@ -54,6 +54,12 @@ This is a native Android Automotive OS app (API 34+), not a standard mobile app.
 
 ## 7. Git Workflow Rules
 
+- If you add a new feature or change the UI flow, you must update the `USER_GUIDE.md` and/or `DEVELOPER_GUIDE.md` accordingly. Ensure the synthetic screenshots in the `README.md` are updated if the layout changes significantly.
+
+## 6. Branch Management and Merging
+
+- When working on an existing, previous branch (e.g., rebasing or merging features), features MUST NOT be removed if they have been added to the main branch in the intermediate interval.
+- All branches being merged in, as well as their matching PRs, MUST be referenced in the commit comments and any new PRs.
 - When rebasing or merging existing branches, features added to the main branch in the intermediate interval must not be removed. All merged branches and their matching PRs must be referenced in the commit comments and any new PRs.
 - GitHub Actions CI is configured in `.github/workflows/pr-check.yml` (with `permissions: read-all`) to automatically enforce code quality (`./gradlew lintDebug`), Kotlin and Markdown formatting (`./gradlew spotlessCheck`), static analysis (`./gradlew detekt`), KDoc verification (`./gradlew dokkaHtml`), unit testing (`./gradlew testDebugUnitTest`), test coverage minimums (`./gradlew koverVerifyDebug`), and build verification (`./gradlew assembleDebug`) on pull requests and pushes to the main branch.
 - A local pre-commit hook in `.githooks/pre-commit` automatically runs `spotlessCheck`, `detekt`, and `dokkaHtml`.
