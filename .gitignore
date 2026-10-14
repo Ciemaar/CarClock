@@ -35,3 +35,10 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+# Claude Code workflow runtime state
+.dispatch-state.json
+.claude/.watch-heartbeat
+.claude/.watch-status.json
+.claude/.open-pr-cache
+.claude/.watch-polls-cache

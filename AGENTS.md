@@ -63,3 +63,12 @@ This is a native Android Automotive OS app (API 34+), not a standard mobile app.
 - When rebasing or merging existing branches, features added to the main branch in the intermediate interval must not be removed. All merged branches and their matching PRs must be referenced in the commit comments and any new PRs.
 - GitHub Actions CI is configured in `.github/workflows/pr-check.yml` (with `permissions: read-all`) to automatically enforce code quality (`./gradlew lintDebug`), Kotlin and Markdown formatting (`./gradlew spotlessCheck`), static analysis (`./gradlew detekt`), KDoc verification (`./gradlew dokkaHtml`), unit testing (`./gradlew testDebugUnitTest`), test coverage minimums (`./gradlew koverVerifyDebug`), and build verification (`./gradlew assembleDebug`) on pull requests and pushes to the main branch.
 - A local pre-commit hook in `.githooks/pre-commit` automatically runs `spotlessCheck`, `detekt`, and `dokkaHtml`.
+
+## 7. Report-at-PR-Open Rule
+
+When implementing agents work on this repository, they MUST write and commit their implementation report (as a `.md` file in the `reports/` directory) and push all changes BEFORE opening a pull request. The report serves as both the work record and the PR description foundation, ensuring transparency and auditability of agent-driven changes.
+
+- Agents MUST generate a report documenting what was changed and why
+- Reports MUST be committed alongside implementation changes
+- Pull request body MUST reference and link to the committed report
+- All agent work MUST be visible in git history before PR creation
